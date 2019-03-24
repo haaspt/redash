@@ -242,11 +242,10 @@ describe('Dashboard', () => {
           });
 
         const newContent = '[edited]';
-        cy.get('edit-text-box').should('exist').within(() => {
+        cy.get('.add-textbox').should('exist').within(() => {
           cy.get('textarea').clear().type(newContent);
-          cy.contains('button', 'Save').click();
         });
-
+        cy.contains('button', 'Save').click();
         cy.get('@textboxEl').should('contain', newContent);
       });
     });
